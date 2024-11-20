@@ -5,14 +5,16 @@ import getCountByCategory from "../utils/getCountByCategory";
 import HeaderLink from './HeaderLink.astro';
 import ThemeIcon from './ThemeIcon.astro'
 import MenuIcon from './MenuIcon.astro'
-import {site, categories, infoLinks} from '../consts';
+import {site, categories, infoLinks, config} from '../consts';
 import AsideIcon from "./SidebarIcon.astro";
-import {t} from "../i18n/utils";
+import {useTranslations} from "../i18n/utils";
 import getCountByTagName from "../utils/getCountByTagName";
+
 const blogs = await getCollectionByName('blog')
 let tagArr = getUniqueTags(blogs);
 let categoryCount = getCountByCategory(blogs);
 let tagCount = getCountByTagName(blogs);
+const t = useTranslations(config.lang);
 ---
 
 <header class="fixed top-0 w-full bg-skin-fill text-skin-base z-10">
@@ -26,7 +28,13 @@ let tagCount = getCountByTagName(blogs);
         <div class="flex items-center space-x-5 pr-4">
           {
             categories.map(category => (
-              <HeaderLink href={category.href} icon={category.iconClass} target={category.target ? category.target : '_self'} children={category.children ? category.children : []}>{category.name}</HeaderLink>
+              <HeaderLink
+                href={category.href}
+                icon={category.iconClass}
+                target={category.target ? category.target : '_self'}
+                id={category.id}
+                children={category.children}
+              />
             ))
           }
         </div>
@@ -37,13 +45,14 @@ let tagCount = getCountByTagName(blogs);
       </div>
     </div>
   </div>
+
   <div id="mobile-menu" class="hidden text-center overflow-y-auto pb-8" style="height: calc(100vh - 64px)">
     {
       categories.map((category) => (
         <div class="py-2">
-          <a class=" hover:text-skin-active" href={category.href}>
+          <a class="hover:text-skin-active" href={category.href}>
             <i class={category.iconClass}/>
-            <span>{category.name}</span>
+            <span>{t(category.id)}</span>
           </a>
           {
             category.children && category.children.length > 0 &&
@@ -55,7 +64,7 @@ let tagCount = getCountByTagName(blogs);
                 (
                   <a class="block hover:text-skin-active" href={sub.href}>
                     <i class={sub.iconClass}/>
-                    <span>{sub.name}</span>
+                    <span>{t(sub.id)}</span>
                   </a>
                 )
               )

@@ -44,4 +44,12 @@ export const zhCn = {
   'search.placeholder': '输入标题或摘要关键字',
   'feed.previous': '上一条动态',
   'feed.next': '下一条动态',
+  // Navigation translations
+  'nav.blog': '博客',
+  'nav.feed': '动态',
+  'nav.archive': '归档',
+  'nav.message': '留言',
+  'nav.search': '搜索',
+  'nav.more': '更多',
+  'nav.about': '关于'
 }

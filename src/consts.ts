@@ -16,58 +16,62 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: 'Astro Theme Yi', // required
-  favicon: '/favicon.svg', // required
-  description: 'Welcome to my independent blog website! ',
-  author: "Astro-Yi", // required
-  avatar: '/avatar.png', // required
-  url: 'https://xxxxxx.com', // required
-  motto: 'Actions speak louder than words.',
+  title: "Zane blog", // required
+  favicon: "/favicon.svg", // required
+  description: "Welcome to my independent blog website! ",
+  author: "Zane", // required
+  avatar: "/avatar.png", // required
+  url: "https://blog.zkplife.top", // required
+  motto: "Actions speak louder than words.",
   recentBlogSize: 5,
   archivePageSize: 25,
   postPageSize: 10,
   feedPageSize: 20,
-  beian: '',
-}
+  beian: "",
+};
 
 /**
  * busuanzi {boolean} link: https://busuanzi.ibruce.info/
- * lang {string} Default website language
+ * lang {Lang} Default website language
  * codeFoldingStartLines {number}
  * ga {string|false}
  * memosUrl {string} memos server url
  * memosUsername {string} memos login name
  * memosPageSize {number} 10
  */
+type Lang = "en" | "zh-cn" | "zh-Hant" | "cs";
+
 export const config = {
   busuanzi: false,
-  lang: 'en', // en | zh-cn | zh-Hant | cs
+  lang: "zh-cn" as Lang, // en | zh-cn | zh-Hant | cs
   codeFoldingStartLines: 16, // Need to re-run the project to take effect
   ga: false, // If you want to integrate with Google Analytics, just enter your GA-ID here.
 
   // memos config
-  memosUrl: '', // https://xxxx.xxx.xx
-  memosUsername: '', // login name
+  memosUrl: "", // https://xxxx.xxx.xx
+  memosUsername: "", // login name
   memosPageSize: 10, // number
-}
+};
 
 /**
  * Navigator
- * name {string}
+ * id {string} translation key for the name
  * iconClass {string} icon style
- * href {string}  link url
+ * href {string} link url
  * target {string} optional "_self|_blank" open in current window / open in new window
  */
 export const categories = [
   {
-    name: "Blog",
+    id: 'nav.blog',
     iconClass: "ri-draft-line",
     href: "/blog/1",
+    target: "_self"
   },
   {
-    name: "Feed",
+    id: 'nav.feed',
     iconClass: "ri-lightbulb-flash-line",
     href: "/feed/1",
+    target: "_self"
   },
   // {
   //   name: "Memos",
@@ -75,70 +79,75 @@ export const categories = [
   //   href: "/memos",
   // },
   {
-    name: "Archive",
+    id: 'nav.archive',
     iconClass: "ri-archive-line",
     href: "/archive/1",
+    target: "_self"
   },
   {
-    name: "Message",
+    id: 'nav.message',
     iconClass: "ri-chat-1-line",
     href: "/message",
+    target: "_self"
   },
   {
-    name: "Search",
+    id: 'nav.search',
     iconClass: "ri-search-line",
     href: "/search",
+    target: "_self"
   },
   {
-    name: "More",
+    id: 'nav.more',
     iconClass: "ri-more-fill",
     href: "javascript:void(0);",
+    target: "_self",
     children: [
       {
-        name: 'About',
-        iconClass: 'ri-information-line',
-        href: '/about',
-      },
-      {
-        name: 'Friends',
-        iconClass: 'ri-user-5-line',
-        href: '/friends',
-        target: '_self',
-      },
+        id: 'nav.about',
+        iconClass: "ri-information-line",
+        href: "/about",
+        target: "_self"
+      }
     ]
   }
-]
+];
 
 /**
  * Personal link address
  */
-export const infoLinks = [
-  {
-    icon: 'ri-telegram-fill',
-    name: 'telegram',
-    outlink: 'xxxxxxx',
-  },
-  {
-    icon: 'ri-twitter-fill',
-    name: 'twitter',
-    outlink: 'xxxxxxx',
-  },
-  {
-    icon: 'ri-instagram-fill',
-    name: 'instagram',
-    outlink: 'xxxxxxx',
-  },
-  {
-    icon: 'ri-github-fill',
-    name: 'github',
-    outlink: 'xxxxxxx',
-  },
-  {
-    icon: 'ri-rss-fill',
-    name: 'rss',
-    outlink: 'xxxxxxx',
-  }
-]
+interface InfoLink {
+  icon: string;
+  name: string;
+  outlink: string;
+}
+
+export const infoLinks: InfoLink[] = [
+  // {
+  //   icon: "ri-telegram-fill",
+  //   name: "telegram",
+  //   outlink: "xxxxxxx",
+  // },
+  // {
+  //   icon: "ri-twitter-fill",
+  //   name: "twitter",
+  //   outlink: "xxxxxxx",
+  // },
+  // {
+  //   icon: "ri-instagram-fill",
+  //   name: "instagram",
+  //   outlink: "xxxxxxx",
+  // },
+  // {
+  //   icon: "ri-github-fill",
+  //   name: "github",
+  //   outlink: "xxxxxxx",
+  // },
+  // {
+  //   icon: "ri-rss-fill",
+  //   name: "rss",
+  //   outlink: "xxxxxxx",
+  // },
+];
 
 /**
  * donate
@@ -150,11 +159,11 @@ export const infoLinks = [
  */
 export const donate = {
   enable: false,
-  tip: "Thanks for the coffee !!!☕",
+  tip: "Thanks for the coffee !!!",
   wechatQRCode: "/WeChatQR.png",
   alipayQRCode: "/AliPayQR.png",
   paypalUrl: "https://paypal.me/xxxxxxxxxx",
-}
+};
 
 /**
  * Friendship Links Page
@@ -163,15 +172,14 @@ export const donate = {
  * avatar {string}
  * description {string}
  */
-export const friendshipLinks =
-  [
-    // {
-    //   name: "Cirry's Blog",
-    //   url: 'https://cirry.cn',
-    //   avatar: "https://cirry.cn/avatar.png",
-    //   description: '前端开发的日常'
-    // },
-  ]
+export const friendshipLinks = [
+  {
+    name: "Cirry's Blog",
+    url: 'https://cirry.cn',
+    avatar: "https://cirry.cn/avatar.png",
+    description: '前端开发的日常'
+  },
+];
 
 /**
  * Comment Feature
@@ -189,32 +197,32 @@ export const friendshipLinks =
  */
 export const comment = {
   enable: false,
-  type: 'giscus', // waline | giscus,
+  type: "giscus", // waline | giscus,
   walineConfig: {
     serverUrl: "",
-    lang: 'en',
+    lang: "en",
     pageSize: 20,
-    wordLimit: '',
+    wordLimit: "",
     count: 5,
     pageview: true,
     reaction: true,
     requiredMeta: ["nick", "mail"],
-    whiteList: ['/message/', '/friends/'],
+    whiteList: ["/message/", "/friends/"],
   },
 
   // giscus config
   giscusConfig: {
-    'data-repo': "",
-    'data-repo-id': "",
-    'data-category': "",
-    'data-category-id': "",
-    'data-mapping': "",
-    'data-strict': "",
-    'data-reactions-enabled': "",
-    'data-emit-metadata': "",
-    'data-input-position': "",
-    'data-theme': "",
-    'data-lang': "",
-    'crossorigin': "",
-  }
-}
+    "data-repo": "",
+    "data-repo-id": "",
+    "data-category": "",
+    "data-category-id": "",
+    "data-mapping": "",
+    "data-strict": "",
+    "data-reactions-enabled": "",
+    "data-emit-metadata": "",
+    "data-input-position": "",
+    "data-theme": "",
+    "data-lang": "",
+    crossorigin: "",
+  },
+};
