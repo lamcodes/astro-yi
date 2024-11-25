@@ -142,11 +142,11 @@ export const infoLinks: InfoLink[] = [
   //   name: "github",
   //   outlink: "xxxxxxx",
   // },
-  // {
-  //   icon: "ri-rss-fill",
-  //   name: "rss",
-  //   outlink: "xxxxxxx",
-  // },
+  {
+    icon: "ri-rss-fill",
+    name: "rss",
+    outlink: "/rss.xml",
+  },
 ];
 
 /**
