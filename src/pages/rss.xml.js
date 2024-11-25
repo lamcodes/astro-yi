@@ -8,7 +8,7 @@ export async function GET(context) {
   });
   return rss({
     title: site.title,
-    description: site.description,
+    description: site.description + "feedId:83895325824595968+userId:55884940486595584",
     site: site.url,
     items: blog.map((post) => ({
       title: post.data.title,
