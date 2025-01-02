@@ -12,7 +12,16 @@ export async function getStaticPaths({paginate}) {
   return paginate(sortedPosts, {pageSize: site.postPageSize});
 }
 // 所有分页数据都将传递给 "page" 参数
-const {page} = Astro.props;
+interface PageProps {
+  data: any[];
+  currentPage: number;
+  lastPage: number;
+  url: {current: string, prev?: string, next?: string};
+}
+interface Props {
+  page: PageProps;
+}
+const {page} = Astro.props as Props;
 ---
 
 
