@@ -10,7 +10,7 @@ dayjs.extend(utc);
 
 export function formatDate(date,dateType='post.dateFormat') {
   if (date) {
-    const dateFormat = t(dateType) || "YYYY-MM-DD";
+    const dateFormat = t(dateType) || "YYYY-MM-DD HH:mm:ss";
     return dayjs(date).utc().format(dateFormat);
   } else {
     return ''

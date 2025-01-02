@@ -42,7 +42,13 @@ import {t} from 'src/i18n/utils'
 
     let divs = ''
 
-    json.memos.forEach(memo => {
+    interface Memo {
+      snippet: string;
+      resources: Array<{ type: string; name: string; filename: string; }>;
+      updateTime: string;
+    }
+
+    json.memos.forEach((memo: Memo) => {
       let imagesStr = ''
       if (memo.resources.length > 0) {
         let images = memo.resources.filter(source => ["image/jpeg", "image/png", "image/jpg", "image/webp"].includes(source.type))

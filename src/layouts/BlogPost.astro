@@ -67,7 +67,7 @@ const {
   // 如果没有markdownBody则直接返回
   if (markdownBody) {
     let images = markdownBody.querySelectorAll("img");
-    const callback = (entries) => {
+    const callback = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const image = entry.target;

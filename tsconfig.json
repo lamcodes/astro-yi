@@ -18,6 +18,7 @@
     "checkJs": false,
     "baseUrl": ".",
     "paths": {
+      "src/*": ["src/*"],
       "$components": [
         "./src/components"
       ],
@@ -31,13 +32,14 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   },
+  "extends": "astro/tsconfigs/strict",
   "include": [
     "src/**/*.d.ts",
     "src/**/*.js",
     "src/**/*.ts",
+    "src/**/*.astro"
   ],
   "exclude": [
     "src/**/.astro"
-
   ]
 }
