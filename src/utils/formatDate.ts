@@ -11,7 +11,7 @@ dayjs.extend(advancedFormat);
 export function formatDate(date, dateType = 'post.dateFormat') {
     if (date) {
         const dateFormat = t(dateType) || "YYYY-MM-DD HH:mm:ss";
-        // 对于 Date 对象（来自 fs.statSync），直接使用 toISOString 方法去掉时区信息
+        // 对于 Date 对象，直接使用 toISOString 方法去掉时区信息
         if (date instanceof Date) {
             return dayjs(date.toISOString().split('Z')[0]).format(dateFormat);
         }
@@ -24,7 +24,7 @@ export function formatDate(date, dateType = 'post.dateFormat') {
 export function formatDateUtc(date, dateType = 'post.dateFormat') {
     if (date) {
         const dateFormat = t(dateType) || "YYYY-MM-DD HH:mm:ss";
-        // 对于 Date 对象（来自 fs.statSync），转换为本地时间并格式化
+        // 对于 Date 对象，转换为本地时间并格式化
         return dayjs(date).format(dateFormat);
     }
     return '';
