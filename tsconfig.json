@@ -35,7 +35,6 @@
     ],
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "suppressImplicitAnyIndexErrors": true,
     "noErrorTruncation": true
   },
   "include": [
