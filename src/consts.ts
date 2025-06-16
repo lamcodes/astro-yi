@@ -21,7 +21,7 @@ export const site = {
   description: "Welcome to my independent blog website! ",
   author: "Zane", // required
   avatar: "/avatar.png", // required
-  url: "https://blog.zkplife.top", // required
+  url: "https://blog.zkplife.com", // required
   motto: "Actions speak louder than words.",
   recentBlogSize: 5,
   archivePageSize: 25,
