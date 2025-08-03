@@ -52,5 +52,5 @@ export const zhCn = {
   'nav.search': '搜索',
   'nav.more': '更多',
   'nav.about': '关于',
-//   'post.dateFormat': 'YYYY-MM-DD',
+  'post.dateFormat': 'YYYY-MM-DD',
 }
