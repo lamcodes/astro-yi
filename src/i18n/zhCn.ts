@@ -51,5 +51,6 @@ export const zhCn = {
   'nav.message': '留言',
   'nav.search': '搜索',
   'nav.more': '更多',
-  'nav.about': '关于'
+  'nav.about': '关于',
+//   'post.dateFormat': 'YYYY-MM-DD',
 }

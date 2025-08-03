@@ -2,9 +2,9 @@
 id: "unique-20250616-140726"
 title: "java新版本特性与springboot新版本特性"
 description: ""
-date: 2025-06-16
+date: 2025-06-16 18:10:05
 date_created: 2025-06-16
-date_updated: 2025-06-16
+date_updated: 2025-06-16 18:10:05
 tags: ["java"]
 katex: false
 pin: false
