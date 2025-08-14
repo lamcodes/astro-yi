@@ -16,41 +16,47 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: "Zane blog", // required
-  favicon: "/favicon.svg", // required
-  description: "Welcome to my independent blog website! ",
-  author: "Zane", // required
-  avatar: "/avatar.png", // required
-  url: "https://blog.zkplife.com", // required
-  motto: "Actions speak louder than words.",
-  recentBlogSize: 5,
-  archivePageSize: 25,
-  postPageSize: 10,
-  feedPageSize: 20,
-  beian: "",
+  title: "Zane blog", // required - 网站标题，用于 BaseHead.astro, Header.astro, RSS.xml.js
+  favicon: "/favicon.svg", // required - 网站图标，用于 BaseHead.astro
+  description: "Welcome to my independent blog website! ", // 网站描述，用于 BaseHead.astro, RSS.xml.js
+  author: "Zane", // required - 作者名称，用于 BlogFooter.astro
+  avatar: "/avatar.png", // required - 个人头像，用于 BaseHead.astro, Header.astro, Profile.astro
+  url: "https://blog.zkplife.com", // required - 网站链接，用于 BlogFooter.astro, RSS.xml.js
+  motto: "Actions speak louder than words.", // 个人格言，用于 Header.astro, Profile.astro
+  recentBlogSize: 5, // 侧边栏显示最近文章数量，用于 BlogAside.astro
+  archivePageSize: 25, // 归档页面每页文章数，用于 archive/[page].astro, archive/index.astro
+  postPageSize: 10, // 博客页面每页文章数，用于 index.astro, blog/[page].astro
+  feedPageSize: 20, // Feed页面每页文章数，用于 feed/[page].astro
+  beian: "", // 备案信息，用于 Footer.astro
 };
 
 /**
- * busuanzi {boolean} link: https://busuanzi.ibruce.info/
- * lang {Lang} Default website language
- * codeFoldingStartLines {number}
- * ga {string|false}
- * memosUrl {string} memos server url
- * memosUsername {string} memos login name
- * memosPageSize {number} 10
+ * busuanzi {boolean} 不蒜子统计：https://busuanzi.ibruce.info/
+ * lang {Lang} 默认网站语言
+ * codeFoldingStartLines {number} 代码折叠起始行数
+ * ga {string|false} Google Analytics 追踪ID
+ * memosUrl {string} Memos 服务器地址
+ * memosUsername {string} Memos 登录用户名
+ * memosPageSize {number} Memos 每页显示数量
+ * umami {string|false} Umami 统计脚本地址，false表示禁用
+ * umamiWebsiteId {string} Umami 网站ID
  */
 type Lang = "en" | "zh-cn" | "zh-Hant" | "cs";
 
 export const config = {
-  busuanzi: false,
-  lang: "zh-cn" as Lang, // en | zh-cn | zh-Hant | cs
-  codeFoldingStartLines: 16, // Need to re-run the project to take effect
-  ga: false, // If you want to integrate with Google Analytics, just enter your GA-ID here.
+  busuanzi: false, // 不蒜子统计开关
+  lang: "zh-cn" as Lang, // 网站语言：en | zh-cn | zh-Hant | cs
+  codeFoldingStartLines: 16, // 代码折叠起始行数，修改后需重启项目
+  ga: false, // Google Analytics 追踪ID，填入ID即可启用
 
-  // memos config
-  memosUrl: "", // https://xxxx.xxx.xx
-  memosUsername: "", // login name
-  memosPageSize: 10, // number
+  // memos 配置
+  memosUrl: "", // Memos 服务器地址：https://xxxx.xxx.xx
+  memosUsername: "", // Memos 登录用户名
+  memosPageSize: 10, // Memos 每页显示数量
+
+  // umami 配置
+  umami: "https://umami.zkplife.com/script.js", // Umami 脚本地址，false表示禁用
+  umamiWebsiteId: "3e6a4666-92fb-4edc-9aa2-bb8b567c5069", // Umami 网站ID
 };
 
 /**
