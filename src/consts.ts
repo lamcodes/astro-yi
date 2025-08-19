@@ -17,7 +17,7 @@
  */
 export const site = {
   title: "Zane blog", // required - 网站标题，用于 BaseHead.astro, Header.astro, RSS.xml.js
-  favicon: "/favicon.svg", // required - 网站图标，用于 BaseHead.astro
+  // favicon: "/favicon.svg", // 已弃用，使用 favicon16 和 favicon32 替代
   description: "Welcome to my independent blog website! ", // 网站描述，用于 BaseHead.astro, RSS.xml.js
   author: "Zane", // required - 作者名称，用于 BlogFooter.astro
   avatar: "/avatar.png", // required - 个人头像，用于 BaseHead.astro, Header.astro, Profile.astro
@@ -27,7 +27,13 @@ export const site = {
   archivePageSize: 25, // 归档页面每页文章数，用于 archive/[page].astro, archive/index.astro
   postPageSize: 10, // 博客页面每页文章数，用于 index.astro, blog/[page].astro
   feedPageSize: 20, // Feed页面每页文章数，用于 feed/[page].astro
-  beian: "", // 备案信息，用于 Footer.astro
+  beian: "", // 备案信息，用于 Footer.astrove
+  
+  // 静态资源路径配置
+  appleTouchIcon: "/apple-touch-icon.png",
+  favicon32: "/favicon-32x32.png",
+  favicon16: "/favicon-16x16.png",
+  siteManifest: "/site.webmanifest",
 };
 
 /**
