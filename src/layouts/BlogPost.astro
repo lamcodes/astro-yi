@@ -39,7 +39,7 @@ const {
           </button>
       <slot/>
       {
-        frontmatter.comment && comment.enable &&
+        comment.enable && (frontmatter.comment !== false) &&
         <Comment></Comment>
       }
         </div>

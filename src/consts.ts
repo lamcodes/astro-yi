@@ -109,18 +109,17 @@ export const categories = [
     target: "_self"
   },
   {
+    id: 'nav.about',
+    iconClass: "ri-information-line",
+    href: "/about",
+    target: "_self"
+  },
+  {
     id: 'nav.more',
     iconClass: "ri-more-fill",
     href: "javascript:void(0);",
     target: "_self",
-    children: [
-      {
-        id: 'nav.about',
-        iconClass: "ri-information-line",
-        href: "/about",
-        target: "_self"
-      }
-    ]
+    children: []
   }
 ];
 

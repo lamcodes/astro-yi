@@ -27,7 +27,13 @@ const t = useTranslations(config.lang);
       <div class="hidden xl:block">
         <div class="flex items-center space-x-5 pr-4">
           {
-            categories.map(category => (
+            categories.filter(category => {
+              // 如果是"更多"菜单且没有子项，则过滤掉
+              if (category.id === 'nav.more') {
+                return category.children && category.children.length > 0;
+              }
+              return true;
+            }).map(category => (
               <HeaderLink
                 href={category.href}
                 icon={category.iconClass}
@@ -48,7 +54,13 @@ const t = useTranslations(config.lang);
 
   <div id="mobile-menu" class="hidden text-center overflow-y-auto pb-8" style="height: calc(100vh - 64px)">
     {
-      categories.map((category) => (
+      categories.filter(category => {
+        // 如果是"更多"菜单且没有子项，则过滤掉
+        if (category.id === 'nav.more') {
+          return category.children && category.children.length > 0;
+        }
+        return true;
+      }).map((category) => (
         <div class="py-2">
           <a class="hover:text-skin-active" href={category.href}>
             <i class={category.iconClass}/>
