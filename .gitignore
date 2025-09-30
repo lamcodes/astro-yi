@@ -24,3 +24,4 @@ pnpm-debug.log*
 
 # patches
 patches/
+.claude/settings.local.json

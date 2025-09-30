@@ -4,7 +4,11 @@
       "WebSearch",
       "WebFetch(domain:developers.google.com)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(dir \"src\\pages\\about\")",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs",
+      "WebFetch(domain:docs.astro.build)"
     ],
     "deny": [],
     "ask": []
