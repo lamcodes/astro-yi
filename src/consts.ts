@@ -16,7 +16,7 @@
  * beian {string} Chinese policy
  */
 export const site = {
-  title: "Zane blog", // required - 网站标题，用于 BaseHead.astro, Header.astro, RSS.xml.js
+  title: "Zane Blog", // required - 网站标题，用于 BaseHead.astro, Header.astro, RSS.xml.js
   // favicon: "/favicon.svg", // 已弃用，使用 favicon16 和 favicon32 替代
   description: "Welcome to my independent blog website! ", // 网站描述，用于 BaseHead.astro, RSS.xml.js
   author: "Zane", // required - 作者名称，用于 BlogFooter.astro
