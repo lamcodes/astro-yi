@@ -8,7 +8,11 @@
       "Bash(dir \"src\\pages\\about\")",
       "mcp__context7__resolve-library-id",
       "mcp__context7__get-library-docs",
-      "WebFetch(domain:docs.astro.build)"
+      "WebFetch(domain:docs.astro.build)",
+      "Skill(superpowers:brainstorming)",
+      "Skill(superpowers:brainstorming:*)",
+      "Bash(xargs cat:*)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []
