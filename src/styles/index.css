@@ -266,6 +266,99 @@ menu {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
+/* ==================== 文章卡片样式 ==================== */
+
+/* 卡片容器 */
+.post-card {
+  @apply pt-4 pb-6 px-5 rounded-lg transition-all duration-300;
+  background-color: rgb(var(--color-fill-secondary));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(var(--color-text), 0.06);
+}
+
+.post-card:hover {
+  @apply -translate-y-1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border-color: rgba(var(--color-text-active), 0.2);
+}
+
+/* 卡片内容区 */
+.post-card-content {
+  @apply text-skin-base;
+}
+
+/* 标题行 */
+.post-title-row {
+  @apply flex items-center gap-3 mb-3;
+}
+
+/* 标题链接 */
+.post-title-link {
+  @apply text-xl font-bold underline-offset-4 decoration-wavy transition-all duration-200;
+  text-decoration-color: transparent;
+  color: rgb(var(--color-text));
+}
+
+.post-title-link:hover {
+  @apply underline decoration-skin-active;
+  color: rgb(var(--color-text-active));
+}
+
+/* 元信息容器 */
+.post-meta {
+  @apply flex flex-wrap items-center gap-2 mb-4;
+}
+
+/* pill 基础样式 */
+.meta-pill {
+  @apply inline-flex items-center gap-1 px-2.5 py-1 text-xs rounded-full transition-all duration-200;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+/* 日期 pill */
+.meta-pill-date {
+  background-color: rgba(var(--color-text), 0.08);
+  color: rgb(var(--color-text));
+}
+
+/* 草稿 pill */
+.meta-pill-draft {
+  background-color: rgba(181, 118, 20, 0.15);
+  color: rgb(var(--color-text-active));
+}
+
+/* 分类 pill */
+.meta-pill-category {
+  background-color: rgba(var(--color-border), 0.15);
+  color: rgb(var(--color-border));
+  text-decoration: none !important;
+}
+
+.meta-pill-category:hover {
+  background-color: rgba(var(--color-border), 0.25);
+  transform: translateY(-1px);
+}
+
+/* 标签 pill */
+.meta-pill-tag {
+  background-color: rgba(var(--color-text-active), 0.1);
+  color: rgb(var(--color-text-active));
+  text-decoration: none !important;
+}
+
+.meta-pill-tag:hover {
+  background-color: rgba(var(--color-text-active), 0.2);
+  transform: translateY(-1px);
+}
+
+/* 文章描述 */
+.post-description {
+  @apply break-all text-skin-base leading-relaxed;
+  color: rgba(var(--color-text), 0.75);
+  font-size: 0.9rem;
+}
+
 .expressive-code {
   margin: 1rem 0;
 }

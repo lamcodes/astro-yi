@@ -5,50 +5,54 @@ import {t} from '../i18n/utils'
 const {title, date, slug, category, tags, sticky = false, draft = false} = Astro.props
 ---
 
-<div class="text-skin-base">
+<div class="post-card-content">
   <!-- title -->
-  <div class="flex items-center">
+  <div class="post-title-row">
     {sticky > 0 &&
-      <div class="post-sticky select-none">{t('home.sticky')}</div>}
-    <a class="flex text-xl underline-offset-4 cursor-pointer decoration-skin-base decoration-wavy hover:underline hover:decoration-sky-500 font-bold" href={slug}>
+      <div class="post-sticky">{t('home.sticky')}</div>}
+    <a class="post-title-link" href={slug}>
       {title}
     </a>
   </div>
 
-  <div class="flex flex-wrap items-center my-2 space-x-2">
+  <!-- meta info: pill 样式 -->
+  <div class="post-meta">
     <!-- date -->
     {
       date && (
-        <i class="ri-calendar-2-fill"/>
-        <div>{formatDate(date)}</div>
+        <span class="meta-pill meta-pill-date">
+          <i class="ri-calendar-2-fill"/>
+          {formatDate(date)}
+        </span>
       )
     }
 
     <!-- draft -->
     {
       draft &&
-      <>
-        <div class="divider-vertical"/>
+      <span class="meta-pill meta-pill-draft">
         <i class="ri-git-pr-draft-line"/>
-        <div>{t('title.draft')}</div>
-      </>
+        {t('title.draft')}
+      </span>
     }
 
     <!-- category -->
     {
       category && dealLabel(category).filter(item => item !== 'uncategorized').map((categoryName) => (
-        <div class="divider-vertical"/>
-        <i class="ri-folder-3-line"/>
-        <a href={"/category/" + categoryName} class="text-wrap break-all hover:text-skin-active">{categoryName}</a>
+        <a class="meta-pill meta-pill-category" href={"/category/" + categoryName}>
+          <i class="ri-folder-3-line"/>
+          {categoryName}
+        </a>
       ))
     }
 
     <!-- tag -->
     {
       tags && dealLabel(tags).map((tagName) => (
-        <div class="divider-vertical"/>
-        <i class="ri-price-tag-3-line"/>
-        <a href={"/tags/" + tagName} class="text-wrap break-all hover:text-skin-active">{tagName}</a>
+        <a class="meta-pill meta-pill-tag" href={"/tags/" + tagName}>
+          <i class="ri-price-tag-3-line"/>
+          {tagName}
+        </a>
       ))
     }
   </div>

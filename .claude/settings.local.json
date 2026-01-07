@@ -12,7 +12,8 @@
       "Skill(superpowers:brainstorming)",
       "Skill(superpowers:brainstorming:*)",
       "Bash(xargs cat:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx astro:*)"
     ],
     "deny": [],
     "ask": []

@@ -4,13 +4,14 @@ const {blog} = Astro.props;
 const {data, slug} = blog
 ---
 
-<div class="pt-2">
+<!-- 文章卡片容器：卡片化设计，增加 hover 效果 -->
+<div class="post-card">
   <PostViewTitle
     slug={`/blog/${slug}`}
     {...data}
   >
   </PostViewTitle>
-  <p class="break-all text-skin-base mb-8">
+  <p class="post-description">
     {
       data.description ? data.description : ''
     }
