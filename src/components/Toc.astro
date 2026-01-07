@@ -9,7 +9,7 @@ import {t} from '../i18n/utils'
     <i class="ri-list-check menu-icon"/>
     {t('blog.tableOfContent')}
   </div>
-  <div class="overflow-auto">
+  <div class="overflow-auto" style="max-height: calc(100vh - 180px);">
     <div class="toc-container"/>
   </div>
 </div>
@@ -21,8 +21,8 @@ import {t} from '../i18n/utils'
     text-shadow: 1px 1px 1px #ffd147;
   }
 
-  .toc_container {
-    overflow-y: scroll;
+  .toc-container {
+    overflow-y: auto;
     /* webkit */
     /* firefox */
     scrollbar-width: none;
