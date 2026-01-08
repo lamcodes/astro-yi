@@ -21,11 +21,6 @@ export default defineConfig({
   integrations: [sitemap(), tailwind(), solid(), expressiveCode({
     plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
     themes: ["github-dark", "github-light"],
-    styleOverrides: {
-      codeFontFamily: "jetbrains-mono",
-      uiFontFamily: "jetbrains-mono",
-    },
-    themeCssSelector: (theme) => `[data-theme="${theme.type}"]`
   }), mdx()],
   markdown: {
     remarkPlugins: [remarkModifiedTime, resetRemark, remarkDirective, remarkAsides({}),remarkCollapse({}),remarkGithubCard()],

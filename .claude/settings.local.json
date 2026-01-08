@@ -13,7 +13,9 @@
       "Skill(superpowers:brainstorming:*)",
       "Bash(xargs cat:*)",
       "Bash(cat:*)",
-      "Bash(npx astro:*)"
+      "Bash(npx astro:*)",
+      "Bash(pnpm install)",
+      "Bash(pnpm run dev)"
     ],
     "deny": [],
     "ask": []
