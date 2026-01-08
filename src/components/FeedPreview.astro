@@ -1,25 +1,65 @@
 ---
+/**
+ * [INPUT]: 依赖 @/components/FeedPostDate 的时间显示，依赖 @/i18n/utils 的 t 函数
+ * [OUTPUT]: 对外提供文章卡片组件，渲染 feed 动态列表项
+ * [POS]: pages/feed/[page].astro 的列表项组件，展示单条动态
+ * [PROTOCOL]: 变更时更新此头部，然后检查 CLAUDE.md
+ */
+
 import FeedPostDate from "./FeedPostDate.astro";
-const {data, body, slug} = Astro.props.post;
-const {index} = Astro.props;
-import {t} from '../i18n/utils'
+const { data, body, slug } = Astro.props.post;
+const { index } = Astro.props;
+import { t } from "../i18n/utils";
+
+// 预处理内容：移除 markdown 标记，保留纯文本
+const plainText = body
+  .replace(/^#+\s+/gm, "")        // 移除标题标记
+  .replace(/!?\[.*?\]\(.*?\)/g, "") // 移除链接
+  .replace(/\*\*(.+?)\*\*/g, "$1") // 移除粗体
+  .replace(/\*(.+?)\*/g, "$1")    // 移除斜体
+  .replace(/`(.+?)`/g, "$1")      // 移除行内代码
+  .replace(/```[\s\S]*?```/g, "") // 移除代码块
+  .replace(/^\s*[-*+]\s+/gm, "")  // 移除列表标记
+  .replace(/^\s*\d+\.\s+/gm, "")  // 移除有序列表
+  .replace(/>\s+/g, "")           // 移除引用
+  .replace(/\n+/g, " ")           // 换行转空格
+  .trim();
+
+const displayText = plainText.length > 100
+  ? plainText.substring(0, 100).replace(/\s+\S*$/, "...")
+  : plainText;
 ---
 
-<div>
-  <p
-    class="break-all first-letter tracking-wide first-letter:font-semibold first-letter:text-2xl"
-  >
-    {
-      body.length > 140
-        ? body.replace(/^#+/gm, "")
-              .replace(/!?\[.*?\]\(.*?\)/g, "")
-              .substring(0, 140) + "..."
-        : body.replace(/^#+/gm, "")
-              .replace(/!?\[.*?\]\(.*?\)/g, "")
-    }
+<article class="post-card">
+  <!-- 文章内容 -->
+  <p class="post-card-content text-base leading-relaxed text-skin-base mb-4">
+    {displayText}
   </p>
-  <div class="flex items-center justify-between mt-2 text-sm">
-    <FeedPostDate date={data.date} index={index}/>
-    <a class="hover:text-skin-active text-sm border rounded py-1 px-2" href={`/feed/${slug}`}>{t('home.readMore')}</a>
+
+  <!-- 底部元信息栏 -->
+  <div class="flex items-center justify-between mt-4 pt-3 border-t border-skin-base/10">
+    <div class="flex items-center gap-3">
+      <FeedPostDate date={data.date} index={index} />
+    </div>
+    <a
+      href={`/feed/${slug}`}
+      class="read-more-btn"
+    >
+      {t("home.readMore")}
+    </a>
   </div>
-</div>
+</article>
+
+<style>
+  .read-more-btn {
+    @apply text-sm px-4 py-1.5 rounded-md transition-all duration-200;
+    @apply bg-skin-fill text-skin-base;
+    border: 1px solid rgba(var(--color-text), 0.2);
+  }
+
+  .read-more-btn:hover {
+    @apply text-skin-active;
+    border-color: rgba(var(--color-text-active), 0.4);
+    transform: translateY(-1px);
+  }
+</style>

@@ -33,10 +33,23 @@ const {
 <main class="container p-4  pt-20 text-skin-base min-h-full pb-32 relative" id="app">
       <div class="grid grid-cols-4 gap-8">
         <div class="col-span-4 xl:col-span-3 space-y-4">
-      <button class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none" style="background-color: inherit;" onclick="history.back()">
+      <button id="goBackBtn" class="flex items-center text-md cursor-pointer hover:text-skin-active outline-none" style="background-color: inherit;">
         <i class="ri-arrow-left-line mr-2"/>
         <span>{t('home.goBack')}</span>
-          </button>
+      </button>
+
+      <script>
+        document.getElementById('goBackBtn')?.addEventListener('click', () => {
+          // 如果上一级是动态详情页（slug 非纯数字），就返回列表；否则使用浏览器返回
+          // /feed/1, /feed/2 是列表页；/feed/xxx 是详情页
+          const fromFeedDetail = document.referrer && !/^\/feed\/\d+$/.test(document.referrer);
+          if (fromFeedDetail) {
+            window.location.href = '/feed/1';
+          } else {
+            history.back();
+          }
+        });
+      </script>
       <slot/>
       {
         comment.enable && (frontmatter.comment !== false) &&
@@ -93,11 +106,15 @@ const {
     var links = markdownBody.querySelectorAll("a");
     // 循环遍历链接标签
     for (var i = 0; i < links.length; i++) {
-      // 给每个链接标签添加 target 属性
+      // 给每个链接标签添加 target 属性，但排除站内同域链接（保持当前页跳转）
       let names = links[i].getAttributeNames()
+      const href = links[i].getAttribute('href') || '';
       if (!names.includes('data-footnote-backref') && !names.includes('data-footnote-ref')) {
-        links[i].setAttribute("target", "_blank");
-        links[i].setAttribute("rel", "nofollow noreferrer");
+        // 只给外部链接加 _blank，站内链接保持默认行为
+        if (href.startsWith('http')) {
+          links[i].setAttribute("target", "_blank");
+          links[i].setAttribute("rel", "nofollow noreferrer");
+        }
       }
     }
   }

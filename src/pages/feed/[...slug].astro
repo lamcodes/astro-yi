@@ -19,16 +19,21 @@ const {Content} = await post.render();
 const posts = await getCollectionByName("feed");
 const sortPosts = sortPostsByDate(posts);
 
-let postDate = post.data.date ? formatDate(post.data.date) : '';
+const postDate = post.data.date ? formatDate(post.data.date) : '';
+
+// 使用时间戳比较日期，避免 Date 对象引用问题
 const currentPostIndex = sortPosts.findIndex(
-  (postItem) => postItem.data.date === post.data.date
+  (postItem) => postItem.data.date && post.data.date &&
+    new Date(postItem.data.date).getTime() === new Date(post.data.date).getTime()
 );
 let prevPost: any, nextPost: any;
-if (sortPosts[currentPostIndex - 1]) {
-  prevPost = sortPosts[currentPostIndex - 1];
-}
-if (sortPosts[currentPostIndex + 1]) {
-  nextPost = sortPosts[currentPostIndex + 1];
+if (currentPostIndex !== -1) {
+  if (sortPosts[currentPostIndex - 1]) {
+    prevPost = sortPosts[currentPostIndex - 1];
+  }
+  if (sortPosts[currentPostIndex + 1]) {
+    nextPost = sortPosts[currentPostIndex + 1];
+  }
 }
 ---
 
@@ -41,7 +46,7 @@ if (sortPosts[currentPostIndex + 1]) {
             <i class="ri-calendar-2-fill mr-1"/>
             <div class="tag">{postDate}</div>
           </div>}
-        {comment.enable && comment.type === "waline" && comment.pageview && (
+        {comment.enable && comment.type === "waline" && comment.walineConfig.pageview && (
           <div class="divider-vertical"/>
           <a href="#" title="当前页面阅读量" class="flex items-center">
             <i class="ri-fire-fill mr-1"/>
@@ -67,7 +72,7 @@ if (sortPosts[currentPostIndex + 1]) {
         {prevPost ? (
           <a
             class="truncate  w-auto max-w-[40%] float-left"
-            href={'/' + prevPost.collection + '/' + prevPost.slug}
+            href={'/feed/' + prevPost.slug}
             title={prevPost.data.title}
           >
             <i class="ri-arrow-left-s-fill"/>
@@ -80,7 +85,7 @@ if (sortPosts[currentPostIndex + 1]) {
           <div class="flex item-center float-right w-auto max-w-[40%] text-right">
             <a
               class="truncate "
-              href={'/' + nextPost.collection + '/' + nextPost.slug}
+              href={'/feed/' + nextPost.slug}
               title={nextPost.data.title}
             >
               {t('feed.next')}

@@ -206,9 +206,43 @@ export const friendshipLinks = [
  * walineConfig.requiredMeta {string[]}  Set required fields, default anonymous
  * walineConfig.whiteList {string[]} set some pages not to display reaction
  */
-export const comment = {
+interface WalineConfig {
+  serverUrl: string;
+  lang: string;
+  pageSize: number;
+  wordLimit: string | number;
+  count: number;
+  pageview: boolean;
+  reaction: boolean | string[];
+  requiredMeta: string[];
+  whiteList: string[];
+}
+
+interface GiscusConfig {
+  "data-repo": string;
+  "data-repo-id": string;
+  "data-category": string;
+  "data-category-id": string;
+  "data-mapping": string;
+  "data-strict": string;
+  "data-reactions-enabled": string;
+  "data-emit-metadata": string;
+  "data-input-position": string;
+  "data-theme": string;
+  "data-lang": string;
+  crossorigin: string;
+}
+
+interface CommentConfig {
+  enable: boolean;
+  type: "waline" | "giscus";
+  walineConfig: WalineConfig;
+  giscusConfig: GiscusConfig;
+}
+
+export const comment: CommentConfig = {
   enable: false,
-  type: "giscus", // waline | giscus,
+  type: "giscus", // waline | giscus
   walineConfig: {
     serverUrl: "",
     lang: "en",
