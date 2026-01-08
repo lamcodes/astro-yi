@@ -15,8 +15,8 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9
       '@astrojs/sitemap':
-        specifier: ^3.2.1
-        version: 3.2.1
+        specifier: ^3.6.1
+        version: 3.6.1
       '@astrojs/solid-js':
         specifier: ^4.4.3
         version: 4.4.3(solid-js@1.8.15)(vite@5.4.10(sass@1.72.0))
@@ -120,8 +120,8 @@ packages:
   '@astrojs/rss@4.0.9':
     resolution: {integrity: sha512-W1qeLc/WP1vMS5xXa+BnaLU0paeSeGjN8RJVAoBaOIkQuKXjIUA9hvPno89heo73in5i67g40gy70oeeHMqp6A==}
 
-  '@astrojs/sitemap@3.2.1':
-    resolution: {integrity: sha512-uxMfO8f7pALq0ADL6Lk68UV6dNYjJ2xGUzyjjVj60JLBs5a6smtlkBYv3tQ0DzoqwS7c9n4FUx5lgv0yPo/fgA==}
+  '@astrojs/sitemap@3.6.1':
+    resolution: {integrity: sha512-+o+TbxXqQJAOd+HxCjz/5RdAMrRFGjeuO+U6zddUuTO59WqMqXnsc8uveRiEr2Ff+3McZiEne7iG4J5cnuI6kA==}
 
   '@astrojs/solid-js@4.4.3':
     resolution: {integrity: sha512-9yNVQsyerz6T+jiAT8bqBGrhvPpMjweKUHdRp9FACKTHnqR3oLDUzCRf0/Lejh6dEkLT9XVAMhy9INgVYU87CA==}
@@ -944,11 +944,8 @@ packages:
     resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
     engines: {node: '>=16'}
 
-  caniuse-lite@1.0.30001651:
-    resolution: {integrity: sha512-9Cf+Xv1jJNe1xPZLGuUXLNkE1BoDkqRqYyFJ9TDYSqhduqA4hu4oR9HluGoWYQC/aj8WHjsGVV+bwkh0+tegRg==}
-
-  caniuse-lite@1.0.30001669:
-    resolution: {integrity: sha512-DlWzFDJqstqtIVx1zeSpIMLjunf5SmwOw0N2Ck/QSQdS8PLS4+9HrLaYei4w8BIAL7IB/UEDu889d8vhCTPA0w==}
+  caniuse-lite@1.0.30001763:
+    resolution: {integrity: sha512-mh/dGtq56uN98LlNX9qdbKnzINhX0QzhiWBFEkFfsFO4QyCvL8YegrJAazCwXIeqkIob8BlZPGM3xdnY+sgmvQ==}
 
   ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -2055,8 +2052,8 @@ packages:
     engines: {node: '>=14.0.0'}
     hasBin: true
 
-  sax@1.3.0:
-    resolution: {integrity: sha512-0s+oAmw9zLl1V1cS9BtZN7JAd0cW5e0QH4W3LWEK6a4LaLEA2OTpGYWDY+6XasBLtz6wkm3u1xRw95mRuJ59WA==}
+  sax@1.4.3:
+    resolution: {integrity: sha512-yqYn1JhPczigF94DMS+shiDMjDowYO6y9+wB/4WgO0Y19jWYk0lQ4tuG5KI7kj4FTp1wxPj5IFfcrz/s1c3jjQ==}
 
   section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
@@ -2109,8 +2106,8 @@ packages:
   sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
 
-  sitemap@8.0.0:
-    resolution: {integrity: sha512-+AbdxhM9kJsHtruUF39bwS/B0Fytw6Fr1o4ZAIAEqA6cke2xcoO2GleBw9Zw7nRzILVEgz7zBM5GiTJjie1G9A==}
+  sitemap@8.0.2:
+    resolution: {integrity: sha512-LwktpJcyZDoa0IL6KT++lQ53pbSrx2c9ge41/SeLTyqy2XUNA6uR4+P9u5IVo5lPeL2arAcOKn1aZAxoYbCKlQ==}
     engines: {node: '>=14.0.0', npm: '>=6.0.0'}
     hasBin: true
 
@@ -2477,6 +2474,9 @@ packages:
   zod@3.23.8:
     resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
 
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
+
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
@@ -2545,11 +2545,11 @@ snapshots:
       fast-xml-parser: 4.5.0
       kleur: 4.1.5
 
-  '@astrojs/sitemap@3.2.1':
+  '@astrojs/sitemap@3.6.1':
     dependencies:
-      sitemap: 8.0.0
+      sitemap: 8.0.2
       stream-replace-string: 2.0.0
-      zod: 3.23.8
+      zod: 3.25.76
 
   '@astrojs/solid-js@4.4.3(solid-js@1.8.15)(vite@5.4.10(sass@1.72.0))':
     dependencies:
@@ -3364,7 +3364,7 @@ snapshots:
   autoprefixer@10.4.20(postcss@8.4.47):
     dependencies:
       browserslist: 4.23.3
-      caniuse-lite: 1.0.30001651
+      caniuse-lite: 1.0.30001763
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.1
@@ -3426,14 +3426,14 @@ snapshots:
 
   browserslist@4.23.3:
     dependencies:
-      caniuse-lite: 1.0.30001651
+      caniuse-lite: 1.0.30001763
       electron-to-chromium: 1.5.5
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.23.3)
 
   browserslist@4.24.0:
     dependencies:
-      caniuse-lite: 1.0.30001669
+      caniuse-lite: 1.0.30001763
       electron-to-chromium: 1.5.40
       node-releases: 2.0.18
       update-browserslist-db: 1.1.0(browserslist@4.24.0)
@@ -3442,9 +3442,7 @@ snapshots:
 
   camelcase@8.0.0: {}
 
-  caniuse-lite@1.0.30001651: {}
-
-  caniuse-lite@1.0.30001669: {}
+  caniuse-lite@1.0.30001763: {}
 
   ccount@2.0.1: {}
 
@@ -5033,7 +5031,7 @@ snapshots:
       immutable: 4.3.5
       source-map-js: 1.1.0
 
-  sax@1.3.0: {}
+  sax@1.4.3: {}
 
   section-matter@1.0.0:
     dependencies:
@@ -5110,12 +5108,12 @@ snapshots:
 
   sisteransi@1.0.5: {}
 
-  sitemap@8.0.0:
+  sitemap@8.0.2:
     dependencies:
       '@types/node': 17.0.45
       '@types/sax': 1.2.7
       arg: 5.0.2
-      sax: 1.3.0
+      sax: 1.4.3
 
   solid-js@1.8.15:
     dependencies:
@@ -5510,5 +5508,7 @@ snapshots:
       zod: 3.23.8
 
   zod@3.23.8: {}
+
+  zod@3.25.76: {}
 
   zwitch@2.0.4: {}

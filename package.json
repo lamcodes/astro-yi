@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/mdx": "^3.1.9",
     "@astrojs/rss": "^4.0.9",
-    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/sitemap": "^3.6.1",
     "@astrojs/solid-js": "^4.4.3",
     "@astrojs/tailwind": "^5.1.2",
     "@expressive-code/plugin-collapsible-sections": "^0.33.5",
