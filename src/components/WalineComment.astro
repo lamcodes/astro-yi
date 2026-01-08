@@ -22,7 +22,7 @@
       reaction: comment.walineConfig.whiteList.includes(location.pathname)
         ? false
         : comment.walineConfig.reaction, // 开启反应
-      requiredMeta: comment.walineConfig.requiredMeta,
+      requiredMeta: comment.walineConfig.requiredMeta as ["nick" | "mail" | "link"],
       dark: 'html[data-theme="dark"]',
     });
   }
