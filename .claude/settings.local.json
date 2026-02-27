@@ -15,7 +15,11 @@
       "Bash(cat:*)",
       "Bash(npx astro:*)",
       "Bash(pnpm install)",
-      "Bash(pnpm run dev)"
+      "Bash(pnpm run dev)",
+      "Bash(npx:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)"
     ],
     "deny": [],
     "ask": []
