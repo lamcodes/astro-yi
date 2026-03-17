@@ -7,7 +7,8 @@
  */
 
 import FeedPostDate from "./FeedPostDate.astro";
-const { data, body, slug } = Astro.props.post;
+import { getFeedPath } from '../utils/content-entry'
+const { data, body, id } = Astro.props.post;
 const { index } = Astro.props;
 import { t } from "../i18n/utils";
 
@@ -42,7 +43,7 @@ const displayText = plainText.length > 100
       <FeedPostDate date={data.date} index={index} />
     </div>
     <a
-      href={`/feed/${slug}`}
+      href={getFeedPath(id)}
       class="read-more-btn"
     >
       {t("home.readMore")}
@@ -52,13 +53,19 @@ const displayText = plainText.length > 100
 
 <style>
   .read-more-btn {
-    @apply text-sm px-4 py-1.5 rounded-md transition-all duration-200;
-    @apply bg-skin-fill text-skin-base;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.375rem;
+    padding: 0.375rem 1rem;
+    background-color: rgb(var(--color-fill));
+    color: rgb(var(--color-text));
+    font-size: 0.875rem;
+    transition: all 0.2s ease;
     border: 1px solid rgba(var(--color-text), 0.2);
   }
 
   .read-more-btn:hover {
-    @apply text-skin-active;
+    color: rgb(var(--color-text-active));
     border-color: rgba(var(--color-text-active), 0.4);
     transform: translateY(-1px);
   }

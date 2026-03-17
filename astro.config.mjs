@@ -1,7 +1,6 @@
 import {defineConfig} from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
 import solid from '@astrojs/solid-js';
 import remarkDirective from "remark-directive";
 import expressiveCode from "astro-expressive-code";
@@ -18,7 +17,7 @@ import {lazyLoadImage} from "./src/plugins/lazy-load-image.js";
 
 export default defineConfig({
   site: 'https://blog.zkplife.com',
-  integrations: [sitemap(), tailwind(), solid(), expressiveCode({
+  integrations: [sitemap(), solid(), expressiveCode({
     plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
     themes: ["github-dark", "github-light"],
   }), mdx()],

@@ -1,10 +1,11 @@
 import rss from '@astrojs/rss';
 import {site} from "../consts";
 import {getCollection} from "astro:content";
+import { getBlogPath, shouldIncludeEntry } from '../utils/content-entry';
 
 export async function GET(context) {
   const blog = (await getCollection('blog')).filter(({data}) => {
-    return import.meta.env.PROD ? !data.draft : true
+    return shouldIncludeEntry(data, import.meta.env.PROD)
   });
   return rss({
     title: site.title,
@@ -16,7 +17,7 @@ export async function GET(context) {
       description: post.data.description? post.data.description : post.body.substring(0, 140).replace(/#/gi, "") + "...",
       // Compute RSS link from post `slug`
       // This example assumes all posts are rendered as `/blog/[slug]` routes
-      link: `/blog/${post.slug}/`,
+      link: getBlogPath(post.id),
     })),
   });
 }

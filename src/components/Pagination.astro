@@ -85,6 +85,19 @@ if (totalPage === 1) {
 
 <style>
   a {
-    @apply border mr-2 h-8 w-8 text-center leading-8 rounded cursor-pointer hover:text-skin-active;
+    margin-right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid rgba(var(--color-text), 0.2);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 2rem;
+    text-align: center;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: rgb(var(--color-text-active));
   }
 </style>

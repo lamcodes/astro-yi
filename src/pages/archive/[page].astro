@@ -6,13 +6,21 @@ import getPostsByYear from "src/utils/getPostsByYear";
 import  {site} from "../../consts";
 import dayjs from "dayjs";
 import { getCollectionByName } from "../../utils/getCollectionByName";
+
 export async function getStaticPaths({ paginate }) {
   let posts = await getCollectionByName("blog");
   posts = sortPostsByDate(posts);
   return paginate(posts, { pageSize: site.archivePageSize });
 }
-// 所有分页数据都将传递给 "page" 参数
-const { page } = Astro.props;
+
+interface PageProps {
+  data: any[];
+  currentPage: number;
+  lastPage: number;
+  url: {current: string, prev?: string, next?: string};
+}
+
+const { page } = Astro.props as { page: PageProps };
 let resultPosts = getPostsByYear(page.data);
 ---
 
@@ -26,7 +34,7 @@ let resultPosts = getPostsByYear(page.data);
           <ul>
             {resultPosts[year].map((post) => (
               <li style="list-style-type: disc;" class="ml-4 my-2">
-                <a href={'/' + post.collection + '/' + post.slug}>
+                <a href={'/' + post.collection + '/' + post.id}>
                   <span class="mr-4">
                     {dayjs(post.data.date).format("YYYY-MM-DD")}
                   </span>
@@ -44,6 +52,6 @@ let resultPosts = getPostsByYear(page.data);
     currentPage={page.currentPage}
     totalPage={page.lastPage}
     prefixUrl="/archive/"
-    url={page.slug}
+    url={page.url}
   />
 </IndexPage>

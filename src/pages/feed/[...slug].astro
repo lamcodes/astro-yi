@@ -1,21 +1,28 @@
 ---
+import { getEntry, render } from 'astro:content'
 import {sortPostsByDate} from "src/utils/sortPostsByDate";
 import {getCollectionByName} from "../../utils/getCollectionByName";
 import BlogPost from '../../layouts/BlogPost.astro'
 import {comment} from "../../consts";
 import {formatDate} from '../../utils/formatDate'
 import {t} from '../../i18n/utils'
+import { getFeedPath } from '../../utils/content-entry'
 
 export async function getStaticPaths() {
   const posts = await getCollectionByName("feed");
   return posts.map((post) => ({
-    params: {slug: post.slug},
-    props: post,
+    params: {slug: post.id},
   }));
 }
 
-const post = Astro.props;
-const {Content} = await post.render();
+const slug = Astro.params.slug;
+const post = slug ? await getEntry('feed', slug) : undefined;
+
+if (!post) {
+  throw new Error(`Missing feed entry for slug: ${slug}`)
+}
+
+const {Content} = await render(post);
 const posts = await getCollectionByName("feed");
 const sortPosts = sortPostsByDate(posts);
 
@@ -50,12 +57,12 @@ if (currentPostIndex !== -1) {
           <div class="divider-vertical"/>
           <a href="#" title="当前页面阅读量" class="flex items-center">
             <i class="ri-fire-fill mr-1"/>
-            <span class="waline-pageview-count" data-path={'/' + post.collection + '/' + post.slug}/>
+            <span class="waline-pageview-count" data-path={'/' + post.collection + '/' + post.id}/>
           </a>
           <div class="divider-vertical"/>
           <a href="#waline" title="当前页面评论数" class="flex items-center">
             <i class="ri-discuss-fill mr-1"/>
-            <span class="waline-comment-count" data-path={'/' + post.collection + '/' + post.slug}/>
+            <span class="waline-comment-count" data-path={'/' + post.collection + '/' + post.id}/>
           </a>
         )}
       </div>
@@ -72,7 +79,7 @@ if (currentPostIndex !== -1) {
         {prevPost ? (
           <a
             class="truncate  w-auto max-w-[40%] float-left"
-            href={'/feed/' + prevPost.slug}
+              href={getFeedPath(prevPost.id)}
             title={prevPost.data.title}
           >
             <i class="ri-arrow-left-s-fill"/>
@@ -85,7 +92,7 @@ if (currentPostIndex !== -1) {
           <div class="flex item-center float-right w-auto max-w-[40%] text-right">
             <a
               class="truncate "
-              href={'/feed/' + nextPost.slug}
+              href={getFeedPath(nextPost.id)}
               title={nextPost.data.title}
             >
               {t('feed.next')}

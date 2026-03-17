@@ -5,15 +5,21 @@ import Pagination from "src/components/Pagination.astro";
 import { sortPostsByDate } from "src/utils/sortPostsByDate";
 import { getCollectionByName } from "../../utils/getCollectionByName";
 import FeedPreview from "../../components/FeedPreview.astro";
+
 export async function getStaticPaths({ paginate }) {
   let posts = await getCollectionByName("feed");
   posts = sortPostsByDate(posts);
-  // 将根据宇航员数组生成两个页面
   return paginate(posts, { pageSize: site.feedPageSize });
 }
-// 所有分页数据都将传递给 "page" 参数
 
-const { page } = Astro.props;
+interface PageProps {
+  data: any[];
+  currentPage: number;
+  lastPage: number;
+  url: {current: string, prev?: string, next?: string};
+}
+
+const { page } = Astro.props as { page: PageProps };
 ---
 
 <IndexPage>
@@ -23,7 +29,7 @@ const { page } = Astro.props;
   <Pagination
     currentPage={page.currentPage}
     totalPage={page.lastPage}
-    url={page.slug}
+    url={page.url}
     prefixUrl="/feed/"
   />
 </IndexPage>

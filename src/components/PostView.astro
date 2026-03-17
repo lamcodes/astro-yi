@@ -1,13 +1,14 @@
 ---
+import { getBlogPath } from '../utils/content-entry'
 import PostViewTitle from '../components/PostViewTitle.astro'
 const {blog} = Astro.props;
-const {data, slug} = blog
+const {data, id} = blog
 ---
 
 <!-- 文章卡片容器：卡片化设计，增加 hover 效果 -->
 <div class="post-card">
   <PostViewTitle
-    slug={`/blog/${slug}`}
+    slug={getBlogPath(id)}
     {...data}
   >
   </PostViewTitle>

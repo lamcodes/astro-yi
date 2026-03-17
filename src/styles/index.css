@@ -1,7 +1,7 @@
 @import url('./github-markdown.css');
 @import "remixicon/fonts/remixicon.css";
 @import "tocbot/dist/tocbot.css";
-@import "remark-aside.css";
+@import "./remark-aside.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

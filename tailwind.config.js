@@ -11,7 +11,7 @@ function withOpacity(variableName) {
 
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkmode: "class",
+  darkMode: "class",
   theme: {
     screens: {
       'sm': '600px',

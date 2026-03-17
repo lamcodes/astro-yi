@@ -22,7 +22,9 @@
     "checkJs": false,
     "baseUrl": ".",
     "paths": {
-      "src/*": ["src/*"],
+      "src/*": [
+        "src/*"
+      ],
       "$components": [
         "./src/components"
       ],
@@ -31,7 +33,8 @@
       ]
     },
     "types": [
-      "astro/env"
+      "astro/env",
+      "vitest/globals"
     ],
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
@@ -41,7 +44,8 @@
     "src/**/*.d.ts",
     "src/**/*.js",
     "src/**/*.ts",
-    "src/**/*.astro"
+    "src/**/*.astro",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "src/**/.astro"

@@ -16,8 +16,11 @@ src/ - 源码目录
 </directory>
 
 <config>
-package.json - Astro 4.16.13 + Tailwind CSS 3.4.1
+package.json - Astro 6.0.5 + Tailwind CSS 3.4.1(PostCSS bridge) + Vitest 4.1.0
+src/content.config.ts - Astro 6 Content Layer 集合定义与 schema
 tailwind.config.js - 响应式断点 + 深色模式
+postcss.config.cjs - Tailwind 3 / autoprefixer 构建桥接
+.github/workflows/ci.yml - Node 22 持续集成，执行 npm ci/test/build
 </config>
 
 <法则>极简·响应式·深色模式·多语言</法则>

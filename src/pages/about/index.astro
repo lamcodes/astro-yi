@@ -1,7 +1,7 @@
 ---
 import IndexPage from "src/layouts/IndexPage.astro";
-let posts = await Astro.glob("./about.md");
-let {Content, frontmatter} = posts[0];
+const posts = Object.values(import.meta.glob('./about.md', { eager: true }));
+const { default: Content, frontmatter } = posts[0];
 ---
 
 <IndexPage frontmatter={frontmatter}>
