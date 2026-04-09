@@ -5,7 +5,7 @@ description: ''
 date: 2024-11-14 18:10:05
 date_updated: 2024-11-14 18:10:05
 tags: ['java']
-category: ['默认','java']
+category: '技术'
 katex: false
 pin: false
 draft: false

@@ -5,7 +5,7 @@ description: ''
 date: 2025-10-15 13:39:20
 date_updated: 2025-10-15 13:39:20
 tags: ['tcp', '网络协议']
-category: ['技术', '网络']
+category: '技术'
 katex: false
 pin: false
 draft: false

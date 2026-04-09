@@ -5,7 +5,7 @@ description: ""
 date: 2026-01-06 16:03:58
 date_updated: 2026-01-06 16:03:58
 tags: ["springboot", "maven", "java"]
-category: ["技术", "java"]
+category: "技术"
 katex: false
 pin: false
 draft: false

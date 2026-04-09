@@ -5,7 +5,7 @@ description: ''
 date: 2025-08-02 14:26:22
 date_updated: 2025-08-02 18:26:22
 tags: ['docker', 'ssl', 'x509']
-category: ['技术', '运维']
+category: '技术'
 katex: false
 pin: false
 draft: false

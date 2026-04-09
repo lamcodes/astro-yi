@@ -5,7 +5,7 @@ description: ''
 date: 2025-09-22 00:01:49
 date_updated: 2025-09-22 00:01:49
 tags: ['openjdk', 'java', 'jdk']
-category: ['技术', 'java']
+category: '技术'
 katex: false
 pin: false
 draft: false

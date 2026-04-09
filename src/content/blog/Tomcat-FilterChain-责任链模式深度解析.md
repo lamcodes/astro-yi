@@ -5,7 +5,7 @@ description: ''
 date: 2026-02-27 23:52:49
 date_updated: 2026-02-27 23:52:49
 tags: ['设计模式', 'tomcat', '源码分析']
-category: ['技术', 'java']
+category: '技术'
 katex: false
 pin: false
 draft: false
