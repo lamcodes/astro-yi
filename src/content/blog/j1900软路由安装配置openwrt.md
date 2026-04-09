@@ -4,7 +4,8 @@ title: "j1900软路由安装配置openwrt"
 description: ""
 date: 2025-09-18 09:44:14
 date_updated: 2025-09-18 09:44:14
-tags: ["软路由", "openwrt"]
+tags: ["软路由", "openwrt", "j1900"]
+category: ["技术", "软路由"]
 katex: false
 pin: false
 draft: false

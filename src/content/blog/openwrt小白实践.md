@@ -4,7 +4,8 @@ title: "openwrt小白实践"
 description: ""
 date: 2025-06-16 18:10:05
 date_updated: 2025-06-16 18:10:05
-tags: ["openwrt"]
+tags: ["openwrt", "软路由", "n1"]
+category: ["技术", "软路由"]
 katex: false
 pin: false
 draft: false

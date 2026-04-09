@@ -4,7 +4,8 @@ title: 'oepnjdk版本一览'
 description: ''
 date: 2025-09-22 00:01:49
 date_updated: 2025-09-22 00:01:49
-tags: ['openjdk']
+tags: ['openjdk', 'java', 'jdk']
+category: ['技术', 'java']
 katex: false
 pin: false
 draft: false

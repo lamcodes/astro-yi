@@ -5,7 +5,8 @@ description: ""
 date: 2025-06-16 18:10:05
 date_created: 2025-06-16
 date_updated: 2025-06-16 18:10:05
-tags: ["java"]
+tags: ["java", "springboot", "新特性"]
+category: ["技术", "java"]
 katex: false
 pin: false
 draft: false

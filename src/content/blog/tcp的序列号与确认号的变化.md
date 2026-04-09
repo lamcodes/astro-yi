@@ -4,7 +4,8 @@ title: 'tcp的序列号与确认号的变化'
 description: ''
 date: 2025-10-15 13:39:20
 date_updated: 2025-10-15 13:39:20
-tags: ['tcp']
+tags: ['tcp', '网络协议']
+category: ['技术', '网络']
 katex: false
 pin: false
 draft: false

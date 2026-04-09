@@ -26,3 +26,4 @@ pnpm-debug.log*
 patches/
 .claude/settings.local.json
 .claude
+.baoyu-skills/

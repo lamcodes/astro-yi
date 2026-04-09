@@ -4,6 +4,8 @@ title: New features
 description: More new features specific to this theme.
 mermaid: true
 mathjax: true
+tags: ["astro-yi", "theme", "features"]
+category: ["默认", "astro-yi"]
 ---
 
 ### Support Github Card

@@ -4,7 +4,8 @@ title: "Spring Boot Maven 依赖与插件管理：从 Parent 到 BOM 的完整�
 description: ""
 date: 2026-01-06 16:03:58
 date_updated: 2026-01-06 16:03:58
-tags: ["springboot", "maven"]
+tags: ["springboot", "maven", "java"]
+category: ["技术", "java"]
 katex: false
 pin: false
 draft: false
