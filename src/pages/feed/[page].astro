@@ -20,9 +20,11 @@ interface PageProps {
 }
 
 const { page } = Astro.props as { page: PageProps };
+const pageTitle = page.currentPage === 1 ? `动态 | ${site.title}` : `动态 - 第 ${page.currentPage} 页 | ${site.title}`
+const pageDescription = `查看 ${site.title} 的最新动态和短内容。`
 ---
 
-<IndexPage>
+<IndexPage frontmatter={{ title: pageTitle, description: pageDescription, prevUrl: page.url.prev, nextUrl: page.url.next }}>
   <div class="space-y-4">
     {page.data.map((post, index) => <FeedPreview post={post} index={index} />)}
   </div>

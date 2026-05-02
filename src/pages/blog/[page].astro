@@ -22,10 +22,13 @@ interface Props {
   page: PageProps;
 }
 const {page} = Astro.props as Props;
+const pageTitle = page.currentPage === 1 ? site.title : `博客 - 第 ${page.currentPage} 页 | ${site.title}`
+const pageDescription = site.description
 ---
 
 
-<IndexPage frontmatter={{comment:false}}>
+<IndexPage frontmatter={{comment:false, title: pageTitle, description: pageDescription, prevUrl: page.url.prev, nextUrl: page.url.next}}>
+
   {
     page.data.map((blog, index) =>
       <PostView blog={blog}></PostView>)

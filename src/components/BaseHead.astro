@@ -3,11 +3,17 @@ import '../styles/index.css'
 import {site, config} from "../consts";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const {title = site.title, description = site.description, mathjax = false, mermaid = false} = Astro.props
-let ogImage = '';
-if (title === site.title) {
-  ogImage = new URL(site.avatar, Astro.site?.href).href;
-}
+const {
+  title = site.title,
+  description = site.description,
+  mathjax = false,
+  mermaid = false,
+  ogType = 'website',
+  ogImage = new URL(site.avatar, Astro.site?.href).href,
+  structuredData,
+  prevUrl,
+  nextUrl,
+} = Astro.props
 // console.log(Astro.props.title)
 ---
 <head>
@@ -22,25 +28,38 @@ if (title === site.title) {
   <!-- Canonical URL -->
   <link rel="canonical" href={canonicalURL}/>
 
+  {
+    Astro.props.robots && (
+      <meta name="robots" content={Astro.props.robots}/>
+    )
+  }
+
+  {
+    prevUrl && <link rel="prev" href={new URL(prevUrl, Astro.site).href}/>
+  }
+  {
+    nextUrl && <link rel="next" href={new URL(nextUrl, Astro.site).href}/>
+  }
+
   <!-- Primary Meta Tags -->
   <meta name="title" content={title}/>
   <meta name="description" content={description}/>
   <meta name="google-site-verification" content="njTBXT8wFd_DgD8vhDXgQrCWT8iF1uk88UJBv4KxFCk"/>
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website"/>
+  <meta property="og:type" content={ogType}/>
   <meta property="og:url" content={Astro.url}/>
   <meta property="og:title" content={title}/>
   <meta property="og:description" content={description}/>
-  <meta property="og:image" content={ogImage}/>
-  <!-- <meta property="og:image:alt" content={site.description}/> -->
+  <meta property="og:locale" content="zh_CN"/>
+  {ogImage && <meta property="og:image" content={ogImage}/>}
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image"/>
   <meta property="twitter:url" content={Astro.url}/>
   <meta property="twitter:title" content={title}/>
   <meta property="twitter:description" content={description}/>
-  <meta property="twitter:image" content={ogImage}/>
+  {ogImage && <meta property="twitter:image" content={ogImage}/>}
 
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta name="msapplication-TileColor" content="#da532c"/>
@@ -49,6 +68,11 @@ if (title === site.title) {
 
   <link rel="sitemap" href="/sitemap-index.xml"/>
   <title>{title}</title>
+  {
+    structuredData && (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    )
+  }
   <script is:inline src="/toggle-theme.js"></script>
   {
     mathjax && <script async type="text/javascript" src="/load-mathjax.js"></script>

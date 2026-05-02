@@ -9,7 +9,7 @@ export async function GET(context) {
   });
   return rss({
     title: site.title,
-    description: site.description + "feedId:157250194660640768+userId:55884940486595584",
+    description: site.description,
     site: site.url,
     items: blog.map((post) => ({
       title: post.data.title,

@@ -1,9 +1,10 @@
 ---
 import IndexPage from "src/layouts/IndexPage.astro";
+import {site} from '../../consts'
 import {t} from 'src/i18n/utils'
 ---
 
-<IndexPage frontmatter={{comment: false, donate: false,}}>
+<IndexPage frontmatter={{comment: false, donate: false, title: `Memos | ${site.title}`, description: `浏览 ${site.title} 的 Memos 动态流。`}}>
   <div class="memos-wrapper" id="memos"></div>
   <button class="rounded bg-skin-card p-1 border text-sm hover:text-skin-active hidden" id="more-btn">{t('memos.loadMore')}</button>
 </IndexPage>

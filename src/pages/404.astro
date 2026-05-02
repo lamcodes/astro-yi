@@ -1,8 +1,9 @@
 ---
 import IndexPage from "src/layouts/IndexPage.astro";
+import {site} from "../consts";
 ---
 
-<IndexPage>
+<IndexPage frontmatter={{ title: `404 | ${site.title}`, description: "抱歉，您访问的页面不存在。", robots: 'noindex, follow' }}>
   <div>404</div>
   <div>Oops,This Page Could Not Be Found!</div>
 </IndexPage>

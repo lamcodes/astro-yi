@@ -19,7 +19,7 @@ import {formatDate} from "../utils/formatDate.js";
   }
   {
     site.url?   <div>
-      {t('footer.originalLink')}：<a href={site.url + '/' + url} class="hover:text-skin-active">{site.url + '/' + url}</a>
+      {t('footer.originalLink')}：<a href={new URL(url, site.url).href} class="hover:text-skin-active">{new URL(url, site.url).href}</a>
     </div>: ''
   }
 </div>

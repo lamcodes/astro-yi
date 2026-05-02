@@ -2,6 +2,7 @@
 import IndexPage from "src/layouts/IndexPage.astro";
 import {site} from "../../consts";
 import dayjs from "dayjs";
+import { getBlogPath } from "../../utils/content-entry";
 import getPostsByYear from "src/utils/getPostsByYear";
 import {sortPostsByDate} from "src/utils/sortPostsByDate";
 import Pagination from "src/components/Pagination.astro";
@@ -16,7 +17,7 @@ sortedPosts = sortedPosts.splice(0, site.archivePageSize);
 let resultPosts = getPostsByYear(sortedPosts);
 ---
 
-<IndexPage>
+<IndexPage frontmatter={{ title: `归档 | ${site.title}`, description: `浏览 ${site.title} 的所有文章归档。`, nextUrl: totalPage > 1 ? '/archive/2' : undefined }}>
   {
     Object.keys(resultPosts)
       .sort((a, b) => Number(b) - Number(a))
@@ -26,7 +27,7 @@ let resultPosts = getPostsByYear(sortedPosts);
           <ul>
             {resultPosts[year].map((post) => (
               <li style="list-style-type: disc;" class="ml-4 my-2">
-                <a href={'/' + post.collection + '/' + post.id}>
+                <a href={getBlogPath(post.id)}>
                   <span class="mr-4">
                     {dayjs(post.data.date).format("YYYY-MM-DD")}
                   </span>

@@ -6,6 +6,7 @@ import getPostsByYear from "src/utils/getPostsByYear";
 import  {site} from "../../consts";
 import dayjs from "dayjs";
 import { getCollectionByName } from "../../utils/getCollectionByName";
+import { getBlogPath } from "../../utils/content-entry";
 
 export async function getStaticPaths({ paginate }) {
   let posts = await getCollectionByName("blog");
@@ -22,9 +23,11 @@ interface PageProps {
 
 const { page } = Astro.props as { page: PageProps };
 let resultPosts = getPostsByYear(page.data);
+const pageTitle = page.currentPage === 1 ? `归档 | ${site.title}` : `归档 - 第 ${page.currentPage} 页 | ${site.title}`
+const pageDescription = `浏览 ${site.title} 的所有文章归档。`
 ---
 
-<IndexPage>
+<IndexPage frontmatter={{ title: pageTitle, description: pageDescription, prevUrl: page.url.prev, nextUrl: page.url.next }}>
   {
     Object.keys(resultPosts)
       .sort((a, b) => Number(b) - Number(a))
@@ -34,7 +37,7 @@ let resultPosts = getPostsByYear(page.data);
           <ul>
             {resultPosts[year].map((post) => (
               <li style="list-style-type: disc;" class="ml-4 my-2">
-                <a href={'/' + post.collection + '/' + post.id}>
+                <a href={getBlogPath(post.id)}>
                   <span class="mr-4">
                     {dayjs(post.data.date).format("YYYY-MM-DD")}
                   </span>

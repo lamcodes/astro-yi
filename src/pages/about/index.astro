@@ -1,10 +1,13 @@
 ---
 import IndexPage from "src/layouts/IndexPage.astro";
+import {site} from "../../consts";
 const posts = Object.values(import.meta.glob('./about.md', { eager: true }));
 const { default: Content, frontmatter } = posts[0];
+const pageTitle = frontmatter.title ? `${frontmatter.title} | ${site.title}` : `关于 | ${site.title}`
+const pageDescription = frontmatter.description || `了解 ${site.title} 的更多信息。`
 ---
 
-<IndexPage frontmatter={frontmatter}>
+<IndexPage frontmatter={{ ...frontmatter, title: pageTitle, description: pageDescription }}>
   <article class="markdown-body">
     <Content/>
   </article>

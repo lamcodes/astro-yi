@@ -17,6 +17,9 @@ const {
     mathjax: false,
     mermaid: false,
   },
+  structuredData,
+  prevUrl,
+  nextUrl,
 } = Astro.props;
 ---
 
@@ -26,6 +29,11 @@ const {
   description={frontmatter.description}
   mathjax={frontmatter.mathjax}
   mermaid={frontmatter.mermaid}
+  ogType="article"
+  ogImage=""
+  structuredData={structuredData}
+  prevUrl={prevUrl}
+  nextUrl={nextUrl}
 />
 
 <body class="bg-skin-secondary">
@@ -113,7 +121,7 @@ const {
         // 只给外部链接加 _blank，站内链接保持默认行为
         if (href.startsWith('http')) {
           links[i].setAttribute("target", "_blank");
-          links[i].setAttribute("rel", "nofollow noreferrer");
+          links[i].setAttribute("rel", "noopener noreferrer");
         }
       }
     }

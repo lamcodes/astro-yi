@@ -17,7 +17,7 @@ if (sortedPosts.length > site.postPageSize) {
 }
 ---
 
-<IndexPage>
+<IndexPage frontmatter={{ title: site.title, description: site.description }}>
   {
     sortedPosts.map(blog =>
       <PostView blog={blog}></PostView>)

@@ -1,11 +1,11 @@
 ---
 import IndexPage from "src/layouts/IndexPage.astro";
-import {comment} from "../../consts";
+import {site, comment} from "../../consts";
 
 import {t} from '../../i18n/utils'
 ---
 
-<IndexPage frontmatter={{comment: comment.enable, donate: false,}}>
+<IndexPage frontmatter={{comment: comment.enable, donate: false, title: `留言板 | ${site.title}`, description: t('message.welcomeTips')}}>
   <div class="flex text-xl underline-offset-4 font-bold">
     {t('message.welcome')}
   </div>
