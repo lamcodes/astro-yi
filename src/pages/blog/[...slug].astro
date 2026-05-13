@@ -68,6 +68,7 @@ if (sortPosts[currentPostIndex + 1]) {
   structuredData={structuredData}
   prevUrl={prevPost ? getBlogPath(prevPost.id) : undefined}
   nextUrl={nextPost ? getBlogPath(nextPost.id) : undefined}
+  backUrl="/blog/1"
 >
   <div>
     <PostTitle slug={getBlogPath(entry.id)} {...entry.data} lastModified={lastModified} readingTime={readingTime}></PostTitle>

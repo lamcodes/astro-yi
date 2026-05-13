@@ -20,6 +20,7 @@ const {
   structuredData,
   prevUrl,
   nextUrl,
+  backUrl = '/blog/1',
 } = Astro.props;
 ---
 
@@ -46,16 +47,13 @@ const {
         <span>{t('home.goBack')}</span>
       </button>
 
-      <script>
+      <script is:inline define:vars={{ backUrl }}>
         document.getElementById('goBackBtn')?.addEventListener('click', () => {
-          // 如果上一级是动态详情页（slug 非纯数字），就返回列表；否则使用浏览器返回
-          // /feed/1, /feed/2 是列表页；/feed/xxx 是详情页
-          const fromFeedDetail = document.referrer && !/^\/feed\/\d+$/.test(document.referrer);
-          if (fromFeedDetail) {
-            window.location.href = '/feed/1';
-          } else {
+          if (document.referrer && new URL(document.referrer).origin === window.location.origin) {
             history.back();
+            return;
           }
+          window.location.href = backUrl;
         });
       </script>
       <slot/>

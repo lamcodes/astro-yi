@@ -27,3 +27,4 @@ patches/
 .claude/settings.local.json
 .claude
 .baoyu-skills/
+.playwright-mcp
