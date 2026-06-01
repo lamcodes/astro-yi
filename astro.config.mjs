@@ -14,10 +14,17 @@ import {remarkCollapse} from "./src/plugins/remark-collapse.js";
 import {remarkGithubCard} from './src/plugins/remark-github-card.js'
 import {lazyLoadImage} from "./src/plugins/lazy-load-image.js";
 
+const noindexPages = new Set([
+  'https://blog.zkplife.com/404/',
+  'https://blog.zkplife.com/search/',
+]);
 
 export default defineConfig({
   site: 'https://blog.zkplife.com',
-  integrations: [sitemap(), solid(), expressiveCode({
+  integrations: [sitemap({
+    // 这些页面自身声明 noindex，继续放进 sitemap 会让 Search Console 报“被 noindex 排除”。
+    filter: (page) => !noindexPages.has(page),
+  }), solid(), expressiveCode({
     plugins: [pluginLineNumbers(), pluginCollapsibleSections()],
     themes: ["github-dark", "github-light"],
   }), mdx()],
