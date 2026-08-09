@@ -13,8 +13,14 @@ export const normalizeUtc8DateInput = (value: unknown) => {
   return value
 }
 
-export const shouldIncludeEntry = (data: { draft?: boolean | null }, isProd: boolean) => {
-  return isProd ? !data.draft : true
+/**
+ * 生产环境排除显式标记为草稿的条目；没有 draft 字段的集合默认公开。
+ * 使用 object 入口避免要求 feed 等集合伪造仅属于 blog 的字段。
+ */
+export const shouldIncludeEntry = (data: object, isProd: boolean) => {
+  const isDraft = 'draft' in data && data.draft === true
+
+  return isProd ? !isDraft : true
 }
 
 export const getBlogPath = (slug: string) => `/blog/${slug}/`

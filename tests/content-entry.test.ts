@@ -16,6 +16,7 @@ describe('content entry assumptions', () => {
   it('filters draft entries only in production mode', () => {
     expect(shouldIncludeEntry({ draft: true }, true)).toBe(false)
     expect(shouldIncludeEntry({ draft: false }, true)).toBe(true)
+    expect(shouldIncludeEntry({}, true)).toBe(true)
     expect(shouldIncludeEntry({ draft: true }, false)).toBe(true)
   })
 
